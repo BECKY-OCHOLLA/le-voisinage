@@ -61,3 +61,10 @@ class Profile(models.Model):
     def update_profile(cls, id):
         Profile.objects.get(user_id=id)
 
+class Business(models.Model):
+    business_name = models.CharField(max_length=250)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    business_hood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE)
+    business_email = models.CharField(max_length=30)
+    business_desc = models.TextField(blank=True)
+
