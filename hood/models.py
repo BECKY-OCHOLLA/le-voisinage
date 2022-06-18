@@ -96,4 +96,12 @@ class Business(models.Model):
     def search_business(cls, name):
         return cls.objects.filter(business_name__icontains=name).all()
 
+class Post(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    title = models.CharField(max_length=150)
+    image = CloudinaryField('images')
+    content = models.TextField(max_length=300, blank=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
+    neighbourhood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE, default='', null=True, blank=True)
+
 
