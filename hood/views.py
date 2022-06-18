@@ -28,3 +28,15 @@ def signup(request):
         form = SignUpForm()
     return render(request, 'registration/registration_form.html', {'form': form})
 
+
+def search(request):
+    if 'business' in request.GET and request.GET['business']:
+        business = request.GET.get("business")
+        results = Business.search_business(business)
+        message = f'business'
+        return render(request, 'search.html', {'business': results, 'message': message})
+    else:
+        message = "You haven't searched for anything, please try again"
+    return render(request, 'search.html', {'message': message})
+
+
