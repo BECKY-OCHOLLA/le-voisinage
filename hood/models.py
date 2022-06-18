@@ -104,4 +104,14 @@ class Post(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
     neighbourhood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE, default='', null=True, blank=True)
 
+    def __str__(self):
+        return self.title
+
+    def save_post(self):
+        return self.save()
+
+    def delete_post(self):
+        self.delete()
+
+
 
