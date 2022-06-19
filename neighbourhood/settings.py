@@ -19,6 +19,12 @@ import django_heroku
 import dj_database_url
 from decouple import config,Csv
 
+cloudinary.config(
+  cloud_name = "becky",
+  api_key = "756394519674228",
+  api_secret = "2jPC3sxda5h1l5YounK2l1UdKHM",
+  secure = True
+)
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
