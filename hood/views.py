@@ -7,15 +7,16 @@ from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
 
-
 # Create your views here.
+
+
 @login_required(login_url='/accounts/login/')
 def index(request):
     # return HttpResponse('Hi there')
     hoods = Neighbourhood.objects.all()
     return render(request, 'index.html', {"hoods": hoods})
 
-@login_required(login_url='/accounts/login/')
+
 def signup(request):
     print('here')
     if request.method == 'POST':
@@ -31,6 +32,7 @@ def signup(request):
     else:
         form = SignUpForm()
     return render(request, 'registration/registration_form.html', {'form': form})
+
 
 @login_required(login_url='/accounts/login/')
 def profile(request):
@@ -51,8 +53,6 @@ def update_profile(request, id):
         return HttpResponseRedirect("/profile")
 
     return render(request, "registration/update_profile.html", {"form": form, "form2": form2})
-
-
 
 @login_required(login_url='/accounts/login/')
 def hood(request):

@@ -1,5 +1,5 @@
 from django.urls import path
-from .import views
+from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -15,6 +15,9 @@ urlpatterns = [
     path('new_business/', views.new_business, name='new_business'),
     path('newhood/', views.hood, name='hood'),
     path('new_post', views.new_post, name='post'),
+
+
+    # path('business_info/(?P<id>\d+)', views.view_biz, name='view_biz'),
 
 
 ]

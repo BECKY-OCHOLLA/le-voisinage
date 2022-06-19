@@ -23,6 +23,7 @@ class UpdateProfileForm(forms.ModelForm):
         model = Profile
         fields = ['email','profile_pic', 'bio','neighbourhood']
 
+
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
@@ -42,6 +43,3 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         exclude = ('user',)
-
-
-
